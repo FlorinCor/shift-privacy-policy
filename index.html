@@ -37,42 +37,80 @@
       <a href="mailto:cordunianuflorin@gmail.com">cordunianuflorin@gmail.com</a>.</p>
   </header>
 
-  <p class="notice"><strong>Current build and planned advertising.</strong> SHIFT is free.
-    The current development build has no advertising SDK, analytics SDK or developer-operated
-    server. An ad-supported release using <strong>Google AdMob</strong> is planned.
-    The advertising section below explains that planned service; it does not mean the
-    current development build already transmits advertising data. This page will be
-    updated to match the advertising implementation before that release.</p>
+  <p class="notice"><strong>A free game for families.</strong> SHIFT includes
+    <strong>Google AdMob banner advertising</strong>, with an age-group choice and
+    privacy controls. The family version does not display full-screen app-open ads
+    at startup, including for adults. Development APKs use Google's test ad units;
+    Google's advertising and privacy services can still process data in those builds.</p>
 
   <h2>Game data on your device</h2>
   <p>SHIFT stores puzzle progress, completion marks, the current piece position and game
-    preferences in the app's private storage so you can continue playing. It does not
+    preferences in the app's private storage so you can continue playing. A coarse
+    age-group choice, advertising privacy choices and basic startup state are also
+    stored locally. The game does not
     require an account, and the game does not send those saved puzzle states to the
-    developer. The current build does not request access to your contacts, camera,
+    developer. SHIFT does not operate a game-account or cloud-save service and does
+    not request access to your contacts, camera,
     microphone or precise location.</p>
   <p>You can clear normal-game progress through <strong>Settings → Reset progress</strong>.
-    Android's app-storage controls can remove all local app data. Android may include
+    This does not reset your age group or advertising privacy choices. Android's
+    app-storage controls can remove all local app data. Android may include
     app data in device backups according to your device and account settings; the
     developer does not receive those backups. Resetting local progress does not delete
     copies managed by Android backup services or data independently held by an advertising provider.</p>
 
-  <h2>Planned Google AdMob advertising</h2>
-  <p>In a release with AdMob enabled, Google's advertising SDK can process your IP address
-    (including an approximate location inferred from it), advertising and other device
-    identifiers, app/ad interactions, and diagnostic information. Google uses these
-    for ad delivery, measurement, analytics and fraud prevention. The data and ad
-    personalization depend on the SDK configuration, your choices and applicable rules.</p>
+  <h2>Age groups and children</h2>
+  <p>Before setting up advertising, SHIFT asks you to choose Under 13, 13–15, 16–17,
+    18 or older, or Prefer not to say. No birth date or identity document is requested.
+    The selected group is saved on your device; the SDK receives the corresponding
+    child, teen or adult treatment settings rather than an exact birth date.</p>
+  <p>Under-13 players, ages 13–15, and players of unknown age receive Google's
+    child-protective ad treatment. Ages 16–17 receive teen treatment. All groups use
+    a maximum ad-content rating of G. Child and unknown-age requests are configured
+    to restrict interest-based advertising and remarketing. SHIFT bundles Google's
+    Families self-certified Mobile Ads SDK and no additional mediation SDKs.</p>
+  <p>You can change the saved group through <strong>Settings → Age group</strong>
+    (or the Age group control on the level screen in benchmark builds).
+    Changing it discards the currently displayed ad before advertising is configured
+    for the new group. The game remains playable when advertising cannot be authorized
+    or loaded. A parent or guardian can contact the developer about a child's privacy
+    or request deletion of correspondence sent to the developer.</p>
+
+  <h2>Google advertising and privacy services</h2>
+  <p>Google's services can process an IP address and approximate location inferred from
+    it, app/ad interactions, diagnostic information, and device identifiers where
+    available and permitted. These support ad delivery, measurement, analytics and
+    fraud prevention. Processing varies with age treatment, platform and privacy choices.</p>
+  <p>SHIFT removes Android advertising-ID and Privacy Sandbox advertising permissions
+    from its manifest and disables Google's publisher first-party ID. This is not a
+    claim that every identifier is unavailable on every Android version: Google's
+    age-protective settings and your privacy choices also govern SDK handling.
+    The game does not send the developer your puzzle solution or saved progress.</p>
   <p>This processing is described by
     <a href="https://policies.google.com/privacy">Google's privacy policy</a> and
     <a href="https://developers.google.com/admob/android/privacy/play-data-disclosure">Google's Mobile Ads data disclosure</a>.
     Google describes SDK transmissions as encrypted in transit. Google and its providers
     may process data in countries other than yours, under the safeguards described in
-    its policy. No additional advertising or mediation provider is configured in the current build.</p>
-  <p>Before enabling advertising that requires consent, SHIFT will provide the required
-    privacy choices. Any required option to revisit those choices must also be available
-    in the advertising release. You can also manage your advertising ID and available
-    ad controls in Android settings. Choosing less personalized advertising does not
-    necessarily stop all data processing needed to deliver or protect ads.</p>
+    its policy. Google and its service or advertising providers handle advertising
+    information under their applicable policies.</p>
+
+  <h2>Advertising privacy choices</h2>
+  <p>Google's User Messaging Platform checks the privacy requirements for the selected
+    age treatment and location. Its consent/privacy service connects to Google to obtain
+    that information even when an ad is not shown. Where required, the app presents
+    Google's privacy form before initializing or requesting advertising. Advertising
+    proceeds only when Google's privacy status permits it; a missing decision or setup
+    failure is not treated as permission.</p>
+  <p>When applicable, <strong>Settings → Ad privacy choices</strong>, or the equivalent
+    control on the level screen in benchmark builds, lets you revisit
+    Google's privacy form. The entry also allows a retry when privacy setup is
+    unavailable. Under-13, 13–15 and unknown-age players are marked as under the
+    age of consent for Google's privacy service. Older teens may still receive a
+    privacy form while teen ad treatment applies.
+    You can additionally manage available advertising controls in Android settings.
+    Less personalized advertising can still require limited processing for ad delivery
+    and fraud prevention. Clearing game progress alone does not withdraw advertising
+    choices or delete information already held by Google.</p>
 
   <h2>When you contact the developer</h2>
   <p>If you send an email, the developer receives your email address and whatever you
@@ -84,8 +122,8 @@
   <h2>Sharing, retention and security</h2>
   <p>The developer does not sell your support correspondence or saved game progress.
     Email services process correspondence to deliver and store messages. Information
-    may also be disclosed where legally required. Advertising data, when advertising
-    is enabled, is processed by Google as explained above; this is separate from local
+    may also be disclosed where legally required. Advertising and consent data
+    is processed by Google as explained above; this is separate from local
     puzzle progress.</p>
   <p>Local game data remains until you reset it, remove app data or otherwise delete it,
     subject to Android backup settings. Google's retention and deletion practices apply
@@ -102,13 +140,6 @@
     help with information held by the developer. Withdrawing consent does not undo
     processing already lawfully performed. For information held independently by
     Google, use the controls and contact methods in Google's privacy policy.</p>
-
-  <h2>Children and families</h2>
-  <p>The game does not ask players to submit their age or personal details. If you believe
-    a child has sent personal information to the developer, contact the email above so
-    the request can be investigated and the information deleted when appropriate.
-    Any advertising release must apply the age-related protections required for its
-    audience and the countries where it is offered.</p>
 
   <h2>This policy page and changes</h2>
   <p>This page is hosted by GitHub Pages, which logs visitors' IP addresses for security.
